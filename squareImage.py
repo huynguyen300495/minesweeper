@@ -6,9 +6,8 @@ import numpy as np
 matrix = [['-' for _ in range(10)] for _ in range(8)]
 # The path to your image file
 
-def get_matrix(image_path):
-    img = Image.open(image_path)
-
+def get_matrix(img):
+    
     # Given square size
     square_size = img.width // 10
 
@@ -45,10 +44,10 @@ def get_matrix(image_path):
     return matrix
 
 
-image_path = 'screenshot.png'
-matrix = get_matrix(image_path)
+# image_path = 'screenshot.png'
+# matrix = get_matrix(image_path)
 
-print(matrix)
+# print(matrix)
 
-for row in matrix:
-    print(' '.join([str(x) for x in row]))
+# for row in matrix:
+#     print(' '.join([str(x) for x in row]))

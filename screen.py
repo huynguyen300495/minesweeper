@@ -9,7 +9,8 @@ from collections import Counter
 def get_screenshot():
     region = (EASY_LEFT, EASY_TOP, EASY_WIDTH, EASY_HEIGHT)
     screenshot = pyautogui.screenshot(region=region)
-    screenshot.save('screenshot.png')
+    return screenshot
+   
 
 
 def analyze_square(img):
