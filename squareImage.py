@@ -48,5 +48,7 @@ def get_matrix(image_path):
 image_path = 'screenshot.png'
 matrix = get_matrix(image_path)
 
+print(matrix)
+
 for row in matrix:
     print(' '.join([str(x) for x in row]))
