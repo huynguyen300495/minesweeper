@@ -1,13 +1,11 @@
 from PIL import Image
+import os
 
 # The path to your image file
 image_path = 'screenshot.png'
 
 # Open the image file
 img = Image.open(image_path)
-
-# Display the image
-# img.show()
 
 # Given square size
 square_size = 111
@@ -18,6 +16,9 @@ num_squares_vertical = 8  # We have 8 rows as mentioned
 
 # Initialize a list to store the file paths of the saved images
 cropped_images = []
+
+# Ensure the 'SquareImage' directory exists
+os.makedirs('SquareImage', exist_ok=True)
 
 # Crop and save the squares
 for y in range(num_squares_vertical):
@@ -32,14 +33,14 @@ for y in range(num_squares_vertical):
         # Crop the image to the box
         cropped_img = img.crop(box)
         
-        # Save the cropped image to the environment path
-        cropped_image_path = f'/Users/huynguyen/Desktop/Minesweeper/minesweeper/SquareImage/{y+1}_{x+1}.png'
+        # Define the relative path for the cropped image
+        cropped_image_path = f'SquareImage/{y+1}_{x+1}.png'
+        
+        # Save the cropped image
         cropped_img.save(cropped_image_path)
+        
+        # Append the relative path to the list
         cropped_images.append(cropped_image_path)
 
 # Return the list of cropped image paths
 cropped_images
-
-
-
-
