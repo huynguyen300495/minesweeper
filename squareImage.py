@@ -8,7 +8,7 @@ image_path = 'screenshot.png'
 img = Image.open(image_path)
 
 # Given square size
-square_size = 111
+square_size = img.width // EASY_X
 
 # Calculate the number of squares horizontally and vertically
 num_squares_horizontal = img.width // square_size
