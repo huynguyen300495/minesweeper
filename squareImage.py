@@ -49,4 +49,4 @@ image_path = 'screenshot.png'
 matrix = get_matrix(image_path)
 
 for row in matrix:
-    print(''.join(row))
+    print(' '.join([str(x) for x in row]))

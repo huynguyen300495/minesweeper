@@ -27,7 +27,12 @@ def analyze_square(img):
     color_count = Counter(pixels)
     most_common_color = color_count.most_common(1)[0][0]
 
-    r, g, b = most_common_color
+    # Handle both RGB and RGBA formats
+    if len(most_common_color) == 4:
+        r, g, b, _ = most_common_color  # Ignore the alpha channel
+    else:
+        r, g, b = most_common_color
+        
     if g > r and g > b:
         return '-'
     return 0
