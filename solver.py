@@ -51,8 +51,9 @@ class Solver:
 
         if len(unopened_neighbors) == remaining_bombs:
             for nx, ny in unopened_neighbors:
-                self.matrix[ny][nx] = '9'
+                self.matrix[ny][nx] = 9
         elif remaining_bombs == 0:
+            unopened_neighbors = [x for x in unopened_neighbors if x not in self.safe_squares]
             self.safe_squares.extend(unopened_neighbors)
         # self.print_matrix()
 
@@ -71,3 +72,22 @@ class Solver:
         print()
         print()
 
+
+
+
+# solver = Solver()
+
+# solver.update_matrix([
+#     ['-', '-', '-', 1, 0, 0, 1, '-', '-', '-'], 
+#     ['-', 3, 1, 1, 0, 0, 1, '-', '-', '-'], 
+#     ['-', 1, 0, 0, 0, 0, 1, 2, 2, 1], 
+#     ['-', 1, 1, 1, 0, 0, 0, 0, 0, 0], 
+#     ['-', '-', '-', 2, 2, 1, 1, 0, 0, 0], 
+#     ['-', '-', '-', '-', '-', '-', 1, 0, 0, 0], 
+#     ['-', '-', '-', '-', '-', '-', 2, 0, 0, 0], 
+#     ['-', '-', '-', '-', '-', '-', 1, 0, 0, 0]
+#     ])
+
+
+# squares = solver.get_safe_squares()
+# print(squares)
