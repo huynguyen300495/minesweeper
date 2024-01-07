@@ -13,6 +13,7 @@ class Solver:
                     self.matrix[i][j] = new_matrix[i][j]
         self.safe_squares = []
         self.process_matrix()
+        self.process_matrix()
 
     def get_unopened_neighbors(self, x, y):
         neighbors = []
