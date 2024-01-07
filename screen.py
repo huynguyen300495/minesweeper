@@ -3,6 +3,7 @@ import pyautogui
 from PIL import Image, ImageStat
 import numpy as np
 import pytesseract
+from collections import Counter
 
 
 def get_screenshot():
@@ -17,18 +18,19 @@ def analyze_square(img):
 
     text = pytesseract.image_to_string(img_preprocessed, config='--psm 10 --oem 3 -c tessedit_char_whitelist=0123456789')
     text = text.strip()
-    if text.isdigit(): return int(text)
+    if text.isdigit(): 
+        if text == '7': return 1
+        return int(text)
 
     # No number detected, classify green vs gray
-    stat = ImageStat.Stat(img)
-    std_dev = stat.stddev
+    pixels = list(img.getdata())
+    color_count = Counter(pixels)
+    most_common_color = color_count.most_common(1)[0][0]
 
-    # If the standard deviation is low, it's likely a gray square
-    if np.mean(std_dev) < GRAY_THRESHOLD:
-        return 0
-    else:
-        # Otherwise, it's a green square (unrevealed)
+    r, g, b = most_common_color
+    if g > r and g > b:
         return '-'
+    return 0
 
 
 

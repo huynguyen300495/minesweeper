@@ -46,4 +46,7 @@ def get_matrix(image_path):
 
 
 image_path = 'screenshot.png'
-print(get_matrix(image_path))
+matrix = get_matrix(image_path)
+
+for row in matrix:
+    print(''.join(row))
