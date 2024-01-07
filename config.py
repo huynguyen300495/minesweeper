@@ -9,12 +9,14 @@ if detailed_os_name == "Darwin":
     EASY_TOP    = 815
     EASY_WIDTH  = 1124
     EASY_HEIGHT = 902
+    GRAY_THRESHOLD = 4.5
+
 else:
     EASY_LEFT   = 942
     EASY_TOP    = 524
     EASY_WIDTH  = 677
     EASY_HEIGHT = 540
-
+    GRAY_THRESHOLD = 9.0
 
 EASY_X = 10  # The number of squares horizontally
 EASY_Y = 8   # The number of squares vertically

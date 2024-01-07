@@ -22,10 +22,9 @@ def analyze_square(img):
     # No number detected, classify green vs gray
     stat = ImageStat.Stat(img)
     std_dev = stat.stddev
-    gray_threshold = 9.0
 
     # If the standard deviation is low, it's likely a gray square
-    if np.mean(std_dev) < gray_threshold:
+    if np.mean(std_dev) < GRAY_THRESHOLD:
         return 0
     else:
         # Otherwise, it's a green square (unrevealed)
